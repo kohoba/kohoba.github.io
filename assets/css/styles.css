@@ -298,3 +298,7 @@ body::before {
   scroll-margin-top: 70px;
 }
 
+footer {
+  margin-top: -50px;
+}
+
