@@ -166,7 +166,7 @@ body::before {
 }
 
 footer {
-  margin-top: -50px;
+  margin-top: -40px;
 }
 
 /* ── MOBILE ── */
@@ -192,32 +192,54 @@ footer {
   }
 }
 
-/* Navbar container als Flexbox */
+/* Logo kleiner auf Mobile */
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    width: 100px !important;
+  }
+}
+
+/* Navbar container: logo links, collapse mitte, toggler rechts */
 
 @media (max-width: 768px) {
   .navbar > .container {
     display: flex !important;
+    flex-wrap: wrap;
     align-items: center;
   }
 }
 
-/* Collapse nimmt den Platz zwischen Logo und Hamburger ein */
+@media (max-width: 768px) {
+  .navbar-brand {
+    order: 1;
+    flex: 0 0 auto;
+  }
+}
 
 @media (max-width: 768px) {
   .navbar-collapse {
+    order: 2;
+    flex: 1 1 auto !important;
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex: 1;
-    width: auto !important;
     background: transparent !important;
     box-shadow: none !important;
+    width: auto !important;
   }
 }
 
-/* Icons immer sichtbar, zentriert */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    order: 3;
+    flex: 0 0 auto;
+  }
+}
+
+/* Icons immer zentriert sichtbar */
 
 @media (max-width: 768px) {
   .navbar-collapse > a {
@@ -225,6 +247,7 @@ footer {
     display: inline-flex !important;
     transform: none !important;
     z-index: 1001;
+    flex: 0 0 auto;
   }
 }
 
@@ -234,10 +257,11 @@ footer {
   .navbar-collapse .navbar-nav {
     display: none !important;
     width: 100%;
+    flex-basis: 100%;
   }
 }
 
-/* Nav-Links sichtbar wenn Menu offen */
+/* Nav-Links sichtbar wenn Menu offen – unterhalb der Icons */
 
 @media (max-width: 768px) {
   .navbar-collapse.show .navbar-nav {
@@ -245,6 +269,7 @@ footer {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    flex-basis: 100%;
     order: 10;
     text-align: center;
   }
@@ -261,6 +286,30 @@ footer {
 @media (max-width: 768px) {
   .navbar-collapse img {
     display: none !important;
+  }
+}
+
+/* Footer links auf Mobile */
+
+@media (max-width: 768px) {
+  footer .container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  footer ul {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  footer li {
+    margin: 8px 0;
   }
 }
 
