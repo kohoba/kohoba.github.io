@@ -192,86 +192,94 @@ footer {
   }
 }
 
-/* Logo kleiner auf Mobile */
+/* Logo kleiner */
 
 @media (max-width: 768px) {
   .navbar-brand img {
-    width: 100px !important;
+    width: 90px !important;
   }
 }
 
-/* Navbar container: logo links, collapse mitte, toggler rechts */
+/* Container: eine Zeile, kein wrap */
 
 @media (max-width: 768px) {
   .navbar > .container {
     display: flex !important;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    height: 56px;
   }
 }
 
 @media (max-width: 768px) {
   .navbar-brand {
-    order: 1;
     flex: 0 0 auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar-collapse {
-    order: 2;
-    flex: 1 1 auto !important;
-    display: flex !important;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background: transparent !important;
-    box-shadow: none !important;
-    width: auto !important;
+    order: 1;
   }
 }
 
 @media (max-width: 768px) {
   .navbar-toggler {
-    order: 3;
     flex: 0 0 auto;
+    order: 3;
   }
 }
 
-/* Icons immer zentriert sichtbar */
+/* Collapse: immer sichtbar als flex-Zeile, füllt Raum zwischen Logo und Burger */
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    order: 2;
+    flex: 1 1 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+}
+
+/* Icons immer sichtbar, zentriert */
 
 @media (max-width: 768px) {
   .navbar-collapse > a {
     position: static !important;
     display: inline-flex !important;
     transform: none !important;
-    z-index: 1001;
     flex: 0 0 auto;
+    align-items: center;
   }
 }
 
-/* Nav-Links versteckt wenn Menu geschlossen */
+/* Nav-Links standardmässig versteckt */
 
 @media (max-width: 768px) {
   .navbar-collapse .navbar-nav {
     display: none !important;
-    width: 100%;
-    flex-basis: 100%;
   }
 }
 
-/* Nav-Links sichtbar wenn Menu offen – unterhalb der Icons */
+/* Nav-Links offen: fixed unter Navbar, zentriert, kein Hintergrund */
 
 @media (max-width: 768px) {
   .navbar-collapse.show .navbar-nav {
     display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    flex-basis: 100%;
-    order: 10;
-    text-align: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    position: fixed !important;
+    top: 56px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    padding: 12px 30px 16px 30px !important;
+    background: transparent !important;
+    z-index: 999 !important;
+    margin: 0 !important;
   }
 }
 
@@ -289,7 +297,7 @@ footer {
   }
 }
 
-/* Footer links auf Mobile */
+/* Footer auf Mobile */
 
 @media (max-width: 768px) {
   footer .container {
@@ -309,7 +317,13 @@ footer {
 
 @media (max-width: 768px) {
   footer li {
-    margin: 8px 0;
+    margin: 12px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar:has(.navbar-collapse.show)::before {
+    height: calc(100% + 10px + 140px);
   }
 }
 
